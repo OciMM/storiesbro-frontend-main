@@ -1,6 +1,6 @@
 import axios from "axios";
 import { API_URL } from "../constants/constatns";
-
+ 
 export const fetchCreatives = () => {
   axios.get(`${API_URL}creatives`).then((res) => {
     return res["data"];
