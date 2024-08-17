@@ -57,11 +57,11 @@ const AdminLeftSideBar = ({ open, setOpen }) => {
             </Typography>
           </Typography>
           <Box sx={{ width: "75%" }}>
-            {/* <MyButton options={{ background: "#E37E31", color: "white" }}>
+            <MyButton options={{ background: "#E37E31", color: "white" }}>
             <Link to="/cash" style={{ textDecoration: "none" }}>
               <Typography sx={{ color: "white" }}>Пополнить</Typography>
             </Link>
-            </MyButton> */}
+            </MyButton>
           </Box>
         </Box>
         <Box
