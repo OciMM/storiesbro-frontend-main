@@ -51,7 +51,7 @@ const Header = ({ setIsLoginFormOpen, ismainpage }) => {
         xs={12}
         sm={8}
       >
-        <Switcher ismainpage={ismainpage} />
+        {/* <Switcher ismainpage={ismainpage} /> */}
       </Grid>
       <Grid
         item
