@@ -29,12 +29,12 @@ const ProfileCash = () => {
           width: { lg: "40%", md: "60%", xs: "80%" },
         }}
       >
-        {/* <ProfileCashButton
+        <ProfileCashButton
           to="/cash/deposit"
           text="Пополнить"
           background="#E68B46"
           color="white"
-        /> */}
+        />
         <ProfileCashButton
           to="/cash/get-money"
           text="Вывести"
