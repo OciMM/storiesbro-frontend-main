@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "react-img-carousel";
 
 const AuthorizedAdminCarusel = ({ firstVideo, secondVideo, thirdVideo }) => {
-  // require("react-img-carousel/lib/carousel.css");
+  require("react-img-carousel/lib/carousel.css");
 
   const videoStyle = {
     width: "258px",
