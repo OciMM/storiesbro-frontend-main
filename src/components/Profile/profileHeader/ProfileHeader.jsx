@@ -84,13 +84,13 @@ const ProfileHeader = () => {
           }}
         >
           <Box sx={{ width: "70%", display: { lg: "block", xs: "none" } }}>
-            <MyButton
+            {/* <MyButton
               options={{ background: "#E68B46", color: "white", mr: 1 }}
             >
             <Link to="/cash" style={{ textDecoration: "none" }}>
               <Typography sx={{ color: "white" }}>Пополнить</Typography>
             </Link>
-            </MyButton>
+            </MyButton> */}
           </Box>
           <Box sx={{ display: { lg: "block", xs: "none" } }}>0р</Box>
           <Box
