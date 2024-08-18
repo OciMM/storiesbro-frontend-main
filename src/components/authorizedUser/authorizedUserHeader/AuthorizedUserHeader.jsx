@@ -116,11 +116,11 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
             display: { xs: "none", lg: "block" },
           }}
         >
-          {/* <MyButton options={{ background: "#E37E31", color: "white" }}>
+          <MyButton options={{ background: "#E37E31", color: "white" }}>
             <Link to="/cash" style={{ textDecoration: "none" }}>
               <Typography sx={{ color: "white" }}>Пополнить</Typography>
             </Link>
-          </MyButton> */}
+          </MyButton>
         </Box>
         <Typography sx={{ display: { xs: "none", lg: "block" } }}>
           0₽
