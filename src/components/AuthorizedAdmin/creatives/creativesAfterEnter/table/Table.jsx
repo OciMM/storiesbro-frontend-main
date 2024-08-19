@@ -133,7 +133,7 @@ const Table = ({ publics, setPublics }) => {
                 justifyContent: "center",
               }}
             >
-              <Link
+              {/* <Link
                 to={`/publics/setting/${publicObj["id"]}`}
                 sx={{
                   m: 2,
@@ -143,7 +143,7 @@ const Table = ({ publics, setPublics }) => {
               >
                 Настройки
               </Link>
-              <Typography>|</Typography>
+              <Typography>|</Typography> */}
               <Typography
                 className="delete"
                 sx={{
