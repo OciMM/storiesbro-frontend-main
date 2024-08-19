@@ -50,7 +50,7 @@ const RightSideBar = ({ open, setOpen }) => {
           onClick={() => setOpen(false)}
         >
           <PaymentsIcon className="menuIcon" sx={{ mr: 1 }} />
-          Пополнение/вывод
+          Вывод
         </NavLink>
         <Divider />
 

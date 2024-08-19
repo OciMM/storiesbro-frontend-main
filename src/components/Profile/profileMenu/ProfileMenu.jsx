@@ -19,7 +19,7 @@ const ProfileMenu = () => {
     },
     {
       icon: <PaymentsIcon sx={{ mr: 1 }} />,
-      linkText: "Пополнение/вывод",
+      linkText: "Вывод",
       linkHref: "/cash",
     },
     {
