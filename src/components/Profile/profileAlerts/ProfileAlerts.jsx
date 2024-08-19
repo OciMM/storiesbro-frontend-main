@@ -7,7 +7,7 @@ import Email from "./Email";
 const ProfileAlerts = () => {
   return (
     <Box>
-      <Vk />
+      {/* <Vk /> */}
       <Email />
     </Box>
   );
