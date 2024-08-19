@@ -91,9 +91,8 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
           },
           height: { xs: "50px", sm: "auto" },
           display: ismainpage ? "flex" : "none",
-          display: "flex",
-          alignItems: "center",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
         {/* <Switcher ismainpage={ismainpage} /> */}
