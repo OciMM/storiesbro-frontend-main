@@ -183,7 +183,7 @@ const RegistrationForm = ({
             control={<Checkbox />}
             label={
               <Typography>
-                Согласны с <Link>правилами пользования</Link> и{" "}
+                Согласны с <Link href="./registrationFiles/PrivacyPolicy.docx" download="PrivacyPolicy.docx">правилами пользования</Link> и{" "}
                 <Link>политикой конфиденциальности</Link>
               </Typography>
             }
