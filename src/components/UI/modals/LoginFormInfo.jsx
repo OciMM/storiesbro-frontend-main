@@ -60,6 +60,7 @@ const LoginFormInfo = ({
         localStorage.setItem("UID", response.data["UID"])
         localStorage.setItem("vk_id", response.data["vk_id"])
         localStorage.setItem('is_active', response.data["is_active"])
+        localStorage.setItem("statusAccount", "admin");
         dispatch(setTokken(response.data["access"]));
         
         const checkStatus = localStorage.getItem("statusAccount");
