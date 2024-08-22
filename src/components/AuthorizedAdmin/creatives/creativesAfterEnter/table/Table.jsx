@@ -199,7 +199,7 @@ const Table = ({ publics, setPublics }) => {
               </Typography>
             </Box>
             <Box className="spaceAround" sx={{}}>
-              <Link
+              {/* <Link
                 to={`/publics/setting/${publicObj["id"]}`}
                 sx={{
                   m: 2,
@@ -208,7 +208,7 @@ const Table = ({ publics, setPublics }) => {
                 className="menuItem"
               >
                 Настройки
-              </Link>
+              </Link> */}
               <Typography sx={{ color: "#CBCBCB", m: 2 }}>|</Typography>
               <Typography
                 sx={{ fontSize: "12px", m: 2, cursor: "pointer" }}
