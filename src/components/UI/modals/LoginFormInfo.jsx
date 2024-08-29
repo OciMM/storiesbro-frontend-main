@@ -111,7 +111,7 @@ const LoginFormInfo = ({
       </Link>
       <GradientButton handleClick={handleConfirmFormInternal}>Войти</GradientButton>
       <Box sx={{ mt: 1, mb: 1 }}></Box>
-      <VkEnter><a href="http://31.129.96.225/api/social-auth/login/vk-oauth2/">Войти через ВКонтакте</a></VkEnter>
+      <VkEnter><a href="https://storisbro.com/api/social-auth/login/vk-oauth2/">Войти через ВКонтакте</a></VkEnter>
       <Typography
         sx={{
           mt: 2,
