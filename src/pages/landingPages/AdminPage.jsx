@@ -72,7 +72,7 @@ const AdminPage = ({ isLoginFormOpen, setIsLoginFormOpen, ismainpage }) => {
               content="Получайте дополнительный и пассивный доход с автоматических публикаций нативных историй"
               buttonText="Повысить доход"
               setIsLoginFormOpen={setIsLoginFormOpen}
-              image={heroImage}
+              // image={heroImage}
             />
           </Grid>
 

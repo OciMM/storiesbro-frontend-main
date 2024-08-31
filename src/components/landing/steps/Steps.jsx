@@ -38,7 +38,7 @@ const Steps = ({ title, steps, buttonText, setIsLoginFormOpen }) => {
       <GradientButton width="390px" xsWidth="247px" height="72px" handleClick={() => setIsLoginFormOpen(true)}>
         {buttonText}
       </GradientButton>
-      <Box
+      {/* <Box
         component="img"
         alt="scroodge"
         src={Scrooge}
@@ -53,7 +53,7 @@ const Steps = ({ title, steps, buttonText, setIsLoginFormOpen }) => {
             transform: "scale(1.05)",
           },
         }}
-      />
+      /> */}
     </Box>
   );
 };
