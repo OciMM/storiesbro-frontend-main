@@ -41,7 +41,7 @@ const Hero = ({ title, content, buttonText, image, setIsLoginFormOpen }) => {
           {buttonText}
         </GradientButton>
       </Box>
-      <Box
+      {/* <Box
         component="img"
         // alt="hero"
         src={image}
@@ -52,7 +52,7 @@ const Hero = ({ title, content, buttonText, image, setIsLoginFormOpen }) => {
             transform: "scale(1.05)",
           },
         }}
-      />
+      /> */}
     </Box>
   );
 };
