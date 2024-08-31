@@ -7,8 +7,6 @@ import axios from "axios";
 import { setTokken } from "../../../store/userReducer";
 import { useDispatch } from "react-redux";
 import { API_URL } from "../../../constants/constatns";
-import ConfirmationForm from "./ConfirmationForm";
-
 import { useNavigate } from 'react-router-dom';
 import * as VKID from '@vkid/sdk'; // Импорт VKID SDK
 
@@ -28,24 +26,46 @@ const LoginFormInfo = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Функция для генерации случайного codeVerifier
+  function generateCodeVerifier() {
+    const array = new Uint32Array(56 / 2);
+    window.crypto.getRandomValues(array);
+    return Array.from(array, dec => ('0' + dec.toString(16)).substr(-2)).join('');
+  }
+
+  // Функция для генерации codeChallenge из codeVerifier
+  async function generateCodeChallenge(codeVerifier) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(codeVerifier);
+    const digest = await window.crypto.subtle.digest('SHA-256', data);
+    return btoa(String.fromCharCode.apply(null, new Uint8Array(digest)))
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
+  }
+
   useEffect(() => {
-    // Инициализация VKID SDK
-    VKID.Config.init({
-      app: '51786441',  // Замените 'YOUR_APP_ID' на ваш VK app ID
-      redirectUrl: 'https://storisbro.com/auth',  // Укажите ваш redirect URL
-      state: 'state',  // Дополнительный параметр состояния
-      codeVerifier: 'codeVerifier',  // Дополнительный параметр
-      scope: 'phone email',  // Запрашиваемые разрешения
+    // Генерация codeVerifier и codeChallenge
+    const codeVerifier = generateCodeVerifier();
+    generateCodeChallenge(codeVerifier).then(codeChallenge => {
+      // Инициализация VKID SDK
+      VKID.Config.init({
+        app: '51786441',  // Ваш VK App ID
+        redirectUrl: 'https://storisbro.com/auth',  // Ваш redirect URL
+        state: 'state',  // Дополнительный параметр состояния
+        codeVerifier: codeVerifier,  // Используйте сгенерированный codeVerifier
+        scope: 'phone email',  // Запрашиваемые разрешения
+      });
+
+      const oneTap = new VKID.OneTap();
+      const container = document.getElementById('VkIdSdkOneTap');
+
+      if (container) {
+        oneTap
+          .render({ container })
+          .on(VKID.WidgetEvents.ERROR, console.error);
+      }
     });
-
-    const oneTap = new VKID.OneTap();
-    const container = document.getElementById('VkIdSdkOneTap');
-
-    if (container) {
-      oneTap
-        .render({ container })
-        .on(VKID.WidgetEvents.ERROR, console.error);
-    }
   }, []);
 
   const handleConfirmFormInternal = () => {
