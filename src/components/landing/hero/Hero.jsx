@@ -43,7 +43,7 @@ const Hero = ({ title, content, buttonText, image, setIsLoginFormOpen }) => {
       </Box>
       <Box
         component="img"
-        alt="hero"
+        // alt="hero"
         src={image}
         sx={{
           width: "36%",
