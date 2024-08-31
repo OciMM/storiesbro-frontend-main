@@ -171,7 +171,7 @@ const RegistrationForm = ({
             control={<Checkbox />}
             label={
               <Typography>
-                Согласны с <Link>правилами пользования</Link> и{" "}
+                Согласны с <Link>правилами пользования</Link> и{"  "}
                 <Link>политикой конфиденциальности</Link>
               </Typography>
             }

@@ -36,7 +36,7 @@ const Footer = () => {
             textAlign: "center",
           }}
         >
-          ©2023 Storisbro. Все права защищены
+          ©2024 Storisbro. Все права защищены
         </Typography>
       </Grid>
       <Grid
@@ -49,8 +49,8 @@ const Footer = () => {
           fontSize: "18px",
         }}
       >
-        <FooterText>Правила пользования</FooterText>
-        <FooterText>Пользовательское соглашение</FooterText>
+        <FooterText><a href="./registrationFiles/PrivacyPolicy.docx" download="PrivacyPolicy.docx">Политика конфиденциальности</a></FooterText>
+        <FooterText><a href="./registrationFiles/UserAgreement.docx" download="UserAgreement.docx">Пользовательское соглашение</a></FooterText>
       </Grid>
       <Grid
         order={{ xs: 3, md: 4 }}

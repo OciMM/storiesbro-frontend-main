@@ -31,7 +31,7 @@ publics[perepison] = ["Переписон", "540.000"];
 const Publics = () => {
   return (
     <Box>
-      <Typography
+      {/* <Typography
         variant="h4"
         sx={{
           fontSize: { xs: "16px", sm: "32px" },
@@ -49,8 +49,8 @@ const Publics = () => {
           более 1000{" "}
         </Typography>
         сообществ
-      </Typography>
-      <Grid container rowSpacing={3} columnSpacing={2}>
+      </Typography> */}
+      {/* <Grid container rowSpacing={3} columnSpacing={2}>
         {Object.keys(publics).map((image, index) => (
           <Grid
             item
@@ -97,7 +97,7 @@ const Publics = () => {
             </Typography>
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
     </Box>
   );
 };

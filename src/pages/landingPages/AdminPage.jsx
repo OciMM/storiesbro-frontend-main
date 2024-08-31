@@ -37,16 +37,14 @@ images[hours] = "Постоянная монетизация сообществ"
 
 const AdminPage = ({ isLoginFormOpen, setIsLoginFormOpen, ismainpage }) => {
   const questions = {
-    "Разрешена ли реклама в историях?":
-      "Да, разрешена. Главное, чтобы рекламные истории соответствовали правилам Вконтакте, поэтому мы проверяем все креативы вручную.",
     "Могу ли я монетизировать истории при ППВк?":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "Влияет ли реклама в историях  на актив сообщества?":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Да, можно, мы общались с агентами тех. поддержки. Креативы в историях при ППВк разрешены. Проверено на сотнях сообществ, что  доход с пп становится выше при монетизации историй",
+    "Влияет ли публикация креативов  на актив сообщества?":
+      "Да, положительно. Мы добавляем контентные-видео для повышения активности и лояльности аудитории.",
     "Мои сообщества подойдут?":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Да, если в них более 20.000 подписчиков и они в 'хорошем' состоянии",
     "Как происходит процесс монетизации сообщества?":
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "1. Подключайте и настраиваете сообщества 2. Получаете статистику 3. Выводите деньги",
   };
   return (
     <>
