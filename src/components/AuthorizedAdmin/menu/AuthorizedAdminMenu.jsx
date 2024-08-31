@@ -23,11 +23,11 @@ const AuthorizedAdminMenu = () => {
       linkHref: "/statistic",
     },
 
-    {
-      icon: <Box component="img" alt="refeal" src={moneys} />,
-      linkText: "Реф. система",
-      linkHref: "/referal",
-    },
+    // {
+    //   icon: <Box component="img" alt="refeal" src={moneys} />,
+    //   linkText: "Реф. система",
+    //   linkHref: "/referal",
+    // },
 
     {
       icon: <Box component="img" alt="help" src={question} />,

@@ -99,10 +99,10 @@ const LeftSideBar = ({ open, setOpen }) => {
             <NavLink className="menuItem" to="/customer-publics">Список сообществ</NavLink>
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          {/* <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="moneys" src={moneys} sx={{ mr: 1 }} />
             <NavLink className="menuItem" to="/customer-referal">Реф. система</NavLink>
-          </Box>
+          </Box> */}
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box

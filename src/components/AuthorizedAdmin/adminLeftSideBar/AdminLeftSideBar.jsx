@@ -97,7 +97,7 @@ const AdminLeftSideBar = ({ open, setOpen }) => {
             </NavLink>
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          {/* <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="moneys" src={moneys} sx={{ mr: 1 }} />
             <NavLink
               to="/referal"
@@ -106,7 +106,7 @@ const AdminLeftSideBar = ({ open, setOpen }) => {
             >
               Реф. система
             </NavLink>
-          </Box>
+          </Box> */}
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="question" src={question} sx={{ mr: 1 }} />
