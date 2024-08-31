@@ -53,7 +53,7 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
         order={{ xs: 1 }}
         onClick={() => setLeftSidebarOpen(true)}
       />
-
+ 
       {/* Средняя часть (например, для Switcher) */}
       <Grid
         item
