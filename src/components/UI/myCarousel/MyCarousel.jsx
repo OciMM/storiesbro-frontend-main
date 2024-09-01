@@ -22,9 +22,10 @@ import video3 from "./images/FullSizeRender.mp4";
 const MyCarousel = () => {
   // Стиль для видео
   const videoStyle = {
-    width: "100%",
-    height: "auto",
-    borderRadius: "10px",
+    width: "258px", // Задаем фиксированную ширину
+    height: "461px", // Задаем фиксированную высоту
+    objectFit: "cover", // Изображения и видео будут обрезаться, чтобы заполнить элемент
+    borderRadius: "10px", // Радиус скругления
   };
 
   return (
