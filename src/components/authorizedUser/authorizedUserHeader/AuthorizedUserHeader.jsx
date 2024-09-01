@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import logo from "./images/logo.svg";
@@ -13,78 +13,68 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
 
   const navigate = useNavigate();
-  const accountStatus = localStorage.getItem('statusAccount');
-  const navigateToHelp = () => navigate(accountStatus === 'customer' ? "/customer-help" : "/admin-help");
+  const accountStatus = localStorage.getItem("statusAccount");
+  const navigateToHelp = () =>
+    navigate(accountStatus === "customer" ? "/customer-help" : "/admin-help");
 
   return (
-    <Grid container sx={{ alignItems: "center", justifyContent: "space-between" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        p: { md: "0 130px", xs: "0 16px" },
+        height: { xs: "50px", sm: "auto" },
+      }}
+    >
+      {/* Иконка меню для мобильных устройств */}
+      <Box
+        component="img"
+        alt="menu"
+        src={menu}
+        sx={{
+          display: { xs: "block", lg: "none" },
+          cursor: "pointer",
+          height: { xs: "50px" },
+        }}
+        onClick={() => setLeftSidebarOpen(true)}
+      />
+      
       {/* Логотип */}
-      <Grid
+      <Box
         component="img"
         alt="logo"
         src={logo}
-        item
-        lg={2}
-        xs={8}
-        order={{ xs: 2, lg: 1 }}
         sx={{
           height: { xs: "50px", sm: "95px" },
           width: { xs: "30px", sm: "60px" },
           cursor: "pointer",
+          ml: { xs: "16px", lg: "0" },
         }}
         onClick={navigateToHelp}
       />
 
-      {/* Иконка меню */}
-      <Grid
-        item
-        xs={2}
-        sx={{
-          height: { xs: "50px" },
-          display: {
-            xs: "block",
-            lg: "none",
-          },
-          cursor: "pointer",
-        }}
-        component="img"
-        alt="menu"
-        src={menu}
-        order={{ xs: 1 }}
-        onClick={() => setLeftSidebarOpen(true)}
-      />
- 
       {/* Средняя часть (например, для Switcher) */}
-      <Grid
-        item
-        lg={8}
-        xs={12}
-        order={{ xs: 3, lg: 2 }}
+      <Box
         sx={{
-          background: {
-            xs: "#FBECE0",
-            lg: "white",
-          },
-          height: { xs: "50px", sm: "auto" },
           display: ismainpage ? "flex" : "none",
           justifyContent: "center",
           alignItems: "center",
+          flexGrow: 1,
+          background: { xs: "#FBECE0", lg: "white" },
+          height: { xs: "50px", sm: "auto" },
         }}
       >
         {/* <Switcher ismainpage={ismainpage} /> */}
-      </Grid>
+      </Box>
 
-      {/* Правая часть (выход и баланс) */}
-      <Grid
-        item
-        lg={ismainpage ? 2 : 10}
-        xs={2}
-        order={{ xs: 4, lg: 3 }}
+      {/* Правая часть */}
+      <Box
         sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-end",
-          position: "relative",
+          width: { md: "15%", xs: "fit-content" },
         }}
       >
         <Box
@@ -103,7 +93,7 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
           0₽
         </Typography>
         <ExitMenu open={open} setOpen={setOpen} />
-      </Grid>
+      </Box>
 
       {/* Боковые меню */}
       <AdminLeftSideBar
@@ -114,7 +104,7 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
         open={isCustomer && leftSidebarOpen}
         setOpen={setLeftSidebarOpen}
       />
-    </Grid>
+    </Box>
   );
 };
 
