@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import logo from "./images/logo.svg";
 import menu from "./images/menu.svg";
 import AdminLeftSideBar from "../../AuthorizedAdmin/adminLeftSideBar/AdminLeftSideBar";
 import ExitMenu from "./exitMenu/ExitMenu";
 import AuthorizedCustomerLeftSidebar from "../../AuthorizedCustomer/authorizedCustomerLeftSidebar/AuthorizedCustomerLeftSidebar";
+import MyButton from "../../UI/buttons/MyButton";
 
 const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
   const [open, setOpen] = useState(false);
@@ -83,15 +84,22 @@ const AuthorizedUserHeader = ({ ismainpage = false, isCustomer }) => {
             display: { xs: "none", lg: "block" },
           }}
         >
-          {/* <MyButton options={{ background: "#E37E31", color: "white" }}>
+          <MyButton options={{ background: "#E37E31", color: "white" }}>
             <Link to="/cash" style={{ textDecoration: "none" }}>
               <Typography sx={{ color: "white" }}>Пополнить</Typography>
             </Link>
-          </MyButton> */}
+          </MyButton>
         </Box>
         <Typography sx={{ display: { xs: "none", lg: "block" } }}>
           0₽
         </Typography>
+        <Box
+          component="img"
+          alt="profile"
+          src={logo} // замените это на нужный вам путь к иконке профиля
+          onClick={() => setOpen(true)}
+          sx={{ cursor: "pointer", ml: 2 }}
+        />
         <ExitMenu open={open} setOpen={setOpen} />
       </Box>
 
