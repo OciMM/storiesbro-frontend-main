@@ -26,7 +26,7 @@ const ProfileCash = () => {
         sx={{
           m: { lg: "0 160px 0 0", xs: "0 auto" },
           display: "flex",
-          width: { lg: "40%", md: "60%", xs: "80%" },
+          // width: { lg: "40%", md: "60%", xs: "80%" },
         }}
       >
         {/* <ProfileCashButton
