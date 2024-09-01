@@ -20,12 +20,12 @@ import video2 from "./images/IMG_6313.mp4";
 import video3 from "./images/FullSizeRender.mp4";
 
 const MyCarousel = () => {
-  // Стиль для видео
-  const videoStyle = {
-    width: "258px", // Задаем фиксированную ширину
-    height: "461px", // Задаем фиксированную высоту
-    objectFit: "cover", // Изображения и видео будут обрезаться, чтобы заполнить элемент
+  // Стиль для слайдов (и для видео, и для изображений)
+  const slideStyle = {
+    width: "258px", // Фиксированная ширина
+    height: "461px", // Фиксированная высота
     borderRadius: "10px", // Радиус скругления
+    objectFit: "cover", // Обеспечивает корректное отображение содержимого
   };
 
   return (
@@ -37,7 +37,7 @@ const MyCarousel = () => {
     >
       {/* Первый слайд - Видео 1 */}
       <SwiperSlide>
-        <video style={videoStyle} controls>
+        <video style={slideStyle} controls>
           <source src={video1} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -45,15 +45,15 @@ const MyCarousel = () => {
 
       {/* Второй слайд - Видео 2 */}
       <SwiperSlide>
-        <video style={videoStyle} controls>
+        <video style={slideStyle} controls>
           <source src={video2} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </SwiperSlide>
 
-      {/* Третий слайд - Видео 3 */}
+      {/* Третий слайд - видео 3 */}
       <SwiperSlide>
-        <video style={videoStyle} controls>
+        <video style={slideStyle} controls>
           <source src={video3} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -62,18 +62,18 @@ const MyCarousel = () => {
       {/* Четвертый слайд - Изображение 1 */}
       <SwiperSlide>
         <Box
-          sx={{ width: { xs: "100%", sm: "100%" } }}
           component="img"
           src={storisImage1}
+          sx={slideStyle} // Применяем стили для изображений
         />
       </SwiperSlide>
 
       {/* Пятый слайд - Изображение 2 */}
       <SwiperSlide>
         <Box
-          sx={{ width: { xs: "100%", sm: "100%" } }}
           component="img"
           src={storisImage2}
+          sx={slideStyle} // Применяем стили для изображений
         />
       </SwiperSlide>
     </Swiper>
