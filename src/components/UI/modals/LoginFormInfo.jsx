@@ -53,7 +53,7 @@ const LoginFormInfo = ({
         app: '51786441',  // Замените 'YOUR_APP_ID' на ваш VK app ID
         redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
         state: 'state',  // Дополнительный параметр состояния
-        codeVerifier: 'codeVerifier',  // Дополнительный параметр
+        codeVerifier: codeVerifier,  // Дополнительный параметр
         scope: 'phone email',  // Запрашиваемые разрешения
       });
   

@@ -12,13 +12,13 @@ const Vca = () => {
     <Box>
       <Typography className="description">
         <Typography component="span" className="orange bold">
-          Стандартные ВЦА
+          Стандартные СЦА
         </Typography>{" "}
         - это универсальные развлекательные истории для мужской и женской
         аудитории старше 25 лет.
       </Typography>
       <Typography className="title" sx={{ mt: 4 }}>
-        Примеры стандартных ВЦА
+        Примеры стандартных СЦА
       </Typography>
       <AuthorizedAdminCarusel firstVideo={firstVideo} secondVideo={secondVideo} thirdVideo={thirdVideo} />
     </Box>
