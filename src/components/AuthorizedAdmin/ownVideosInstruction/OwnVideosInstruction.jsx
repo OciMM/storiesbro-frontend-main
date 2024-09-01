@@ -4,7 +4,7 @@ import React from "react";
 const OwnVideosInstruction = () => {
   return (
     <Grid item xs={12} className="grid">
-      <Box sx={{ mb: 5, mt: -3 }}>
+      {/* <Box sx={{ mb: 5, mt: -3 }}>
         <Typography className="title">
           Ещё, Storisbro может постить контент-видео конкректно под тематику
           Вашего сообщества
@@ -54,7 +54,7 @@ const OwnVideosInstruction = () => {
         <Typography className="description">
           • Фото и видео вертикального формата
         </Typography>
-      </Box>
+      </Box> */}
     </Grid>
   );
 };
