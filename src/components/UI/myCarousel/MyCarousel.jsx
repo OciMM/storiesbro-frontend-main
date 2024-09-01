@@ -7,12 +7,6 @@ import "./style.css";
 import "swiper/css/navigation";
 
 // Пути к изображениям и видео
-// import storisImage1 from "../../../images/landingImages/storis1.svg";
-// import storisImage2 from "../../../images/landingImages/storis2.svg";
-// import storisImage3 from "../../../images/landingImages/storis3.svg";
-// import video1 from "../../../videos/video1.mp4";
-// import video2 from "../../../videos/video2.mp4";
-
 import storisImage1 from "./images/storis.svg";
 import storisImage2 from "./images/mediatmpIMG_6316.jpg";
 import video1 from "./images/IMG_6315.mp4";
@@ -22,8 +16,8 @@ import video3 from "./images/FullSizeRender.mp4";
 const MyCarousel = () => {
   // Стиль для слайдов (и для видео, и для изображений)
   const slideStyle = {
-    width: "258px", // Фиксированная ширина
-    height: "461px", // Фиксированная высота
+    width: "100%", // Занимает всю ширину контейнера
+    height: "100%", // Занимает всю высоту контейнера
     borderRadius: "10px", // Радиус скругления
     objectFit: "cover", // Обеспечивает корректное отображение содержимого
   };
@@ -34,6 +28,18 @@ const MyCarousel = () => {
       spaceBetween={50}
       slidesPerView={3}
       navigation
+      breakpoints={{
+        // Настройки для экрана шириной до 640px (мобильные устройства)
+        0: {
+          slidesPerView: 1, // Показывать один слайд
+          spaceBetween: 10, // Меньше расстояние между слайдами
+        },
+        // Настройки для экрана шириной более 640px
+        640: {
+          slidesPerView: 3, // Показывать три слайда
+          spaceBetween: 50, // Стандартное расстояние между слайдами
+        },
+      }}
     >
       {/* Первый слайд - Видео 1 */}
       <SwiperSlide>
@@ -51,7 +57,7 @@ const MyCarousel = () => {
         </video>
       </SwiperSlide>
 
-      {/* Третий слайд - видео 3 */}
+      {/* Третий слайд - Видео 3 */}
       <SwiperSlide>
         <video style={slideStyle} controls>
           <source src={video3} type="video/mp4" />
