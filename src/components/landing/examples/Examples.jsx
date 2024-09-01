@@ -2,6 +2,10 @@ import React from "react";
 
 import { Box, Typography } from "@mui/material";
 import MyCarousel from "../../UI/myCarousel/MyCarousel";
+import AuthorizedAdminCarusel from "../../UI/myCarousel/AuthorizedAdminCarusel";
+import firstVideo from "./images/storis.svg";
+import secondVideo from "./images/mediatmpIMG_6316.jpg";
+import thirdVideo from "./images/IMG_6315.mp4";
 
 const Examples = () => {
   return (
@@ -12,7 +16,8 @@ const Examples = () => {
       >
         Примеры рекламных креативов
       </Typography>
-      <MyCarousel />
+      {/* <MyCarousel /> */}
+      <AuthorizedAdminCarusel firstVideo={firstVideo} secondVideo={secondVideo} thirdVideo={thirdVideo}/>
     </Box>
   );
 };

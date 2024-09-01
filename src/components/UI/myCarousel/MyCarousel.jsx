@@ -7,7 +7,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "./style.css";
 import "swiper/css/navigation";
-
+ 
 const MyCarousel = () => {
   return (
     <Swiper
