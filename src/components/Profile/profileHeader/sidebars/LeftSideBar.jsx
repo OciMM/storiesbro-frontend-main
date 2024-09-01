@@ -144,10 +144,10 @@ const LeftSideBar = ({ open, setOpen }) => {
             <NavLink className="menuItem" to="/statistic">Статистика</NavLink>
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          {/* <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box component="img" alt="list" src={list} sx={{ mr: 1 }} />
             <NavLink className="menuItem" to="/referal">Реф. система</NavLink>
-          </Box>
+          </Box> */}
 
           <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
             <Box

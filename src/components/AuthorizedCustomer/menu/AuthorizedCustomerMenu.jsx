@@ -29,11 +29,11 @@ const AuthorizedCustomerMenu = () => {
       linkHref: "/customer-publics",
     },
 
-    {
-      icon: <Box component="img" src={moneys} />,
-      linkText: "Реф. система",
-      linkHref: "/customer-referal",
-    },
+    // {
+    //   icon: <Box component="img" src={moneys} />,
+    //   linkText: "Реф. система",
+    //   linkHref: "/customer-referal",
+    // },
 
     {
       icon: <Box component="img" src={question} />,
