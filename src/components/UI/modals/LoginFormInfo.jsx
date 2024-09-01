@@ -75,6 +75,7 @@ const LoginFormInfo = ({
     // Отправка кода на сервер
     axios.post(`${API_URL}auth/vk/`, { code })
       .then(response => {
+        console.log("Вроде работает вк")
         const { access_token, refresh_token, user_id, vk_id } = response.data;
 
         // Сохранение токенов и других данных в localStorage
