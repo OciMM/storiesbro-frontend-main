@@ -16,10 +16,18 @@ import video3 from "./images/FullSizeRender.mp4";
 const MyCarousel = () => {
   // Стиль для слайдов (и для видео, и для изображений)
   const slideStyle = {
-    width: "258px", // Занимает всю ширину контейнера
-    height: "461px", // Занимает всю высоту контейнера
+    width: "258px", // Фиксированная ширина
+    height: "461px", // Фиксированная высота
     borderRadius: "10px", // Радиус скругления
     objectFit: "cover", // Обеспечивает корректное отображение содержимого
+  };
+
+  // Стиль для обертки слайдов, чтобы центрировать содержимое
+  const slideWrapperStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%", // Занимает всю высоту слайда
   };
 
   return (
@@ -43,44 +51,54 @@ const MyCarousel = () => {
     >
       {/* Первый слайд - Видео 1 */}
       <SwiperSlide>
-        <video style={slideStyle} controls>
-          <source src={video1} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <Box sx={slideWrapperStyle}>
+          <video style={slideStyle} controls>
+            <source src={video1} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </Box>
       </SwiperSlide>
 
       {/* Второй слайд - Видео 2 */}
       <SwiperSlide>
-        <video style={slideStyle} controls>
-          <source src={video2} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <Box sx={slideWrapperStyle}>
+          <video style={slideStyle} controls>
+            <source src={video2} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </Box>
       </SwiperSlide>
 
       {/* Третий слайд - Видео 3 */}
       <SwiperSlide>
-        <video style={slideStyle} controls>
-          <source src={video3} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <Box sx={slideWrapperStyle}>
+          <video style={slideStyle} controls>
+            <source src={video3} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </Box>
       </SwiperSlide>
 
       {/* Четвертый слайд - Изображение 1 */}
       <SwiperSlide>
-        <Box
-          component="img"
-          src={storisImage1}
-          sx={slideStyle} // Применяем стили для изображений
-        />
+        <Box sx={slideWrapperStyle}>
+          <Box
+            component="img"
+            src={storisImage1}
+            sx={slideStyle} // Применяем стили для изображений
+          />
+        </Box>
       </SwiperSlide>
 
       {/* Пятый слайд - Изображение 2 */}
       <SwiperSlide>
-        <Box
-          component="img"
-          src={storisImage2}
-          sx={slideStyle} // Применяем стили для изображений
-        />
+        <Box sx={slideWrapperStyle}>
+          <Box
+            component="img"
+            src={storisImage2}
+            sx={slideStyle} // Применяем стили для изображений
+          />
+        </Box>
       </SwiperSlide>
     </Swiper>
   );
