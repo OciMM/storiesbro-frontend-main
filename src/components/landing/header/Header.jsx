@@ -43,7 +43,7 @@ const Header = ({ setIsLoginFormOpen, ismainpage }) => {
           justifyContent: "center",
           height: { xs: "50px", sm: "auto" },
           background: {
-            xs: isCustomer ? "#292929" : "#FBECE0",
+            xs: isCustomer ? "#292929" : "white",
             sm: isCustomer ? "#161616" : "white",
           },
         }}
