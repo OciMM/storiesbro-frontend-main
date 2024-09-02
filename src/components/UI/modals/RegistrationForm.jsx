@@ -205,7 +205,7 @@ const RegistrationForm = ({
           </GradientButton>
         </Box>
         <Typography sx={{ textAlign: "center" }}>
-          Есть аккаунт?
+          Есть аккаунт? {" "}
           <Link onClick={() => handleLoginForm()} sx={{ cursor: "pointer" }}>
             Войти
           </Link>

@@ -28,9 +28,12 @@ const ConfirmationChangePassword = ({ isChangePasswordOpen, setIsChangePasswordO
         }
         else {
           console.log("Нет такой почты")
+          setError(true)
         }
       };
       const [yourEmail, setYourEmail] = useState("");
+      const [error, setError] = useState(false);
+      const [errorMessage, setErrorMessage] = useState("*Данная почта не привязана к аккаунту сервиса");
     
       return (
         <MyModal
@@ -47,6 +50,10 @@ const ConfirmationChangePassword = ({ isChangePasswordOpen, setIsChangePasswordO
               label="Введите почту"
               value={yourEmail}
               setValue={setYourEmail}
+            />
+            <ErrorMessage
+              error={error}
+              errorMessage={errorMessage}
             />
             <GradientButton handleClick={handleClick}>Сохранить</GradientButton>
           </Box>
