@@ -18,13 +18,20 @@ const ChangePassword = ({ isChangePasswordOpen, setIsChangePasswordOpen, email }
     const response = await axios.post(`${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
     if (password === passwordConfirm && response) {
       console.log("Все работает!!!")
+    }
+    if (password != passwordConfirm) {
+      setError(true)
+      setErrorMessage("*Пароли не совпадают")
     } else {
-      console.log("Смена пароля не получилась");
+      console.log("Смена пароля не получилась")
+      setError(true)
+      setErrorMessage("*Код подтверждения неверный")
     };
     setIsChangePasswordOpen(false);
   };
   
-  const error = true;
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [passwordCodeConfirm, setPasswordCodeConfirm] = useState("");
@@ -53,7 +60,7 @@ const ChangePassword = ({ isChangePasswordOpen, setIsChangePasswordOpen, email }
           value={passwordCodeConfirm}
           setValue={setPasswordCodeConfirm}
         />
-        <ErrorMessage error={error} errorMessage="*Пароли не совпадают" />
+        <ErrorMessage error={error} errorMessage={errorMessage} />
         <GradientButton handleClick={handleConfirmForm}>Сохранить</GradientButton>
       </Box>
     </MyModal>
