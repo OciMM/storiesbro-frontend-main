@@ -17,6 +17,7 @@ const ChangePassword = ({ isChangePasswordOpen, setIsChangePasswordOpen, email }
     if (password === passwordConfirm) {
       const response = await axios.post(`${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
       console.log("Отправка запроса активации:", `${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
+      setIsChangePasswordOpen(false);
     }
     if (password != passwordConfirm) {
       setError(true)
@@ -26,7 +27,6 @@ const ChangePassword = ({ isChangePasswordOpen, setIsChangePasswordOpen, email }
       setError(true)
       setErrorMessage("*Код подтверждения неверный")
     };
-    setIsChangePasswordOpen(false);
   };
   
   const [error, setError] = useState(false);
