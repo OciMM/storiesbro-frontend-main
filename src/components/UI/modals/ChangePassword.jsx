@@ -14,10 +14,9 @@ const ChangePassword = ({ isChangePasswordOpen, setIsChangePasswordOpen, email }
   // };
 
   const handleConfirmForm = async () => {
-    console.log("Отправка запроса активации:", `${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
-    const response = await axios.post(`${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
-    if (password === passwordConfirm && response) {
-      console.log("Все работает!!!")
+    if (password === passwordConfirm) {
+      const response = await axios.post(`${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
+      console.log("Отправка запроса активации:", `${API_URL}password_code_confirm/${email}/${password}/${passwordCodeConfirm}/`);
     }
     if (password != passwordConfirm) {
       setError(true)
