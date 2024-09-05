@@ -34,7 +34,7 @@ const ProfileData = () => {
       <ProfileName />
       <ProfileEmail />
       <ProfileButton />
-      <Typography>{localStorage.getItem('UID')}</Typography>
+      {/* <Typography>{localStorage.getItem('UID')}</Typography> */}
       <Button
       onClick={handleUpdate}
       sx={{

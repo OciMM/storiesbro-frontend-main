@@ -11,7 +11,7 @@ const Email = () => {
   };
 
   const [emailActive, setEmailActive] = useState(false);
-  const email = "gusgusniknik@gmail.com ";
+  const email = localStorage.getItem("email");
   return (
     <Grid container>
       <Grid

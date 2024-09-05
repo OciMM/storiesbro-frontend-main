@@ -22,7 +22,6 @@ const LoginFormInfo = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState(null);
-  const [codeVerifier, setCodeVerifier] = useState(""); // Состояние для хранения codeVerifier
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -47,15 +46,14 @@ const LoginFormInfo = ({
 
   useEffect(() => {
     // Генерация codeVerifier и codeChallenge
-    const verifier = generateCodeVerifier();
-    setCodeVerifier(verifier); // Сохранение codeVerifier в состояние
-    generateCodeChallenge(verifier).then(codeChallenge => {
+    const codeVerifier = generateCodeVerifier();
+    generateCodeChallenge(codeVerifier).then(codeChallenge => {
       // Инициализация VKID SDK
       VKID.Config.init({
         app: '51786441',  // Замените 'YOUR_APP_ID' на ваш VK app ID
         redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
         state: 'state',  // Дополнительный параметр состояния
-        codeChallenge: codeChallenge,  // Дополнительный параметр
+        codeVerifier: codeVerifier,  // Дополнительный параметр
         scope: 'phone email',  // Запрашиваемые разрешения
       });
 
@@ -65,7 +63,7 @@ const LoginFormInfo = ({
       if (container) {
         oneTap
           .render({ container })
-          .on(VKID.WidgetEvents.SUCCESS, (data) => handleVkAuth(data, verifier))  // Обработка успеха с передачей codeVerifier
+          .on(VKID.WidgetEvents.SUCCESS, handleVkAuth)  // Обработка успеха
           .on(VKID.WidgetEvents.ERROR, console.error);  // Обработка ошибок
       }
     });
@@ -74,15 +72,15 @@ const LoginFormInfo = ({
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     if (code) {
-      handleVkAuth({ code }, codeVerifier);
+      handleVkAuth({ code });
     }
-  }, [codeVerifier]);
+  }, []);
 
-  const handleVkAuth = (data, codeVerifier) => {
+  const handleVkAuth = (data) => {
     const { code } = data;
 
-    // Отправка кода и code_verifier на сервер
-    axios.post(`${API_URL}auth/vk/`, { code, code_verifier: codeVerifier })
+    // Отправка кода на сервер
+    axios.post(`${API_URL}auth/vk/`, { code })
       .then(response => {
         const { access_token, refresh_token, user_id, vk_id } = response.data;
 
