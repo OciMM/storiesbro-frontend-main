@@ -42,14 +42,18 @@ const Support = () => {
           }}
         >
           <Box className="centerCenter">
-            <Typography
-              component="a" 
-              href="https://vk.com/storisbro_help" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              variant="body1" 
-              color="primary" 
-              className="buttonFont">Написать</Typography>
+          <Typography
+            component="a" 
+            href="https://vk.com/storisbro_help" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            variant="body1" 
+            color="primary" 
+            className="buttonFont"
+            sx={{ textDecoration: "none" }} // Убирает подчеркивание
+          >
+            Написать
+          </Typography>
             <Box component="img" alt="vk" src={vk} sx={{ width: "10%" }} />
           </Box>
         </MyButton>

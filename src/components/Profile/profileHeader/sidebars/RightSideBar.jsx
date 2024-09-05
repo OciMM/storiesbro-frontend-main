@@ -60,7 +60,7 @@ const RightSideBar = ({ open, setOpen }) => {
           onClick={() => setOpen(false)}
         >
           <LockIcon className="menuIcon" sx={{ mr: 1 }} />
-          Измененеие пароля
+          Изменение пароля
         </NavLink>
         <Divider />
 
