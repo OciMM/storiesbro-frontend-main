@@ -180,7 +180,7 @@ const LoginFormInfo = ({
           fontWeight: 400,
         }}
       >
-        Нет аккаунта?
+        Нет аккаунта?{" "}
         <Link
           onClick={() => handleRegistrationForm()}
           sx={{

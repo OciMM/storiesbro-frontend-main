@@ -25,7 +25,7 @@ const DataPickers = () => {
           }}
         >
           <DatePicker format="DD/MM/YYYY" label="Дата" />
-          <Typography>до</Typography>
+          <Typography>{" "}до{" "}</Typography>
           <DatePicker format="DD/MM/YYYY" label="Дата" />
         </Box>
       </Box>

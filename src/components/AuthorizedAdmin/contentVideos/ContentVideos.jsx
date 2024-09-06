@@ -21,8 +21,7 @@ const ContentVideos = () => {
         Что такое контент-видео и его виды
       </Typography>
       <Typography className="description">
-        Контент-видео - это история, которая публикуется вместе с рекламной
-        историей.
+        Контент-видео - это история, которая публикуется вместе с креативом.
       </Typography>
       <Typography className="description">
         Контентные истории нужны для повышения активности в истории. Они имеют
@@ -35,9 +34,9 @@ const ContentVideos = () => {
         только одну рекламу?
       </Typography>
       <Typography className="description">
-        У нас есть 2 вида контент-видео:{" "}
+        У нас есть 3 вида контент-видео:{" "}
         <Typography component="span" className="orange description">
-          стандартные МЦА и стандартные ЖЦА.
+          стандартные МЦА, стандартные ЖЦА и стандартные СЦА.
         </Typography>
       </Typography>
       <Mca />

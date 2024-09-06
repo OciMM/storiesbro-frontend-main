@@ -24,12 +24,12 @@ const Support = () => {
           </Typography>
         </Box>
         <Box>
-          <Box
+          {/* <Box
             component="img"
             alt="scrooge"
             src={scrooge}
             sx={{ width: "100%" }}
-          />
+          /> */}
         </Box>
       </Box>
       <Box sx={{ width: { md: "50%", sm: "75%", xs: "100%" }, mt: 3 }}>
