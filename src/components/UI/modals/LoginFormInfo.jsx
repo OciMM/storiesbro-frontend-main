@@ -50,10 +50,10 @@ const LoginFormInfo = ({
     generateCodeChallenge(codeVerifier).then(codeChallenge => {
       // Инициализация VKID SDK
       VKID.Config.init({
-        app: '51786441',  // Замените 'YOUR_APP_ID' на ваш VK app ID
+        app: '51786441',  // Укажите ваш VK app ID
         redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
         state: 'state',  // Дополнительный параметр состояния
-        codeVerifier: 'codeVerifier',  // Дополнительный параметр
+        codeVerifier: codeVerifier,  // Используем сгенерированный codeVerifier
         scope: 'phone email',  // Запрашиваемые разрешения
       });
   
@@ -70,12 +70,12 @@ const LoginFormInfo = ({
   }, []);
 
   const handleVkAuth = (data) => {
-    const { code } = data;
+    const { code, device_id } = data;
 
-    // Отправка кода на сервер
-    axios.post(`${API_URL}auth/vk/`, { code })
+    // Обмен кода на токены
+    VKID.Auth.exchangeCode(code, device_id)
       .then(response => {
-        const { access_token, refresh_token, user_id, vk_id } = response.data;
+        const { access_token, refresh_token, user_id, vk_id } = response;
 
         // Сохранение токенов и других данных в localStorage
         localStorage.setItem("token", access_token);
@@ -90,7 +90,7 @@ const LoginFormInfo = ({
         navigate('/admin');
       })
       .catch(error => {
-        console.error('Ошибка при авторизации через ВКонтакте:', error);
+        console.error('Ошибка при обмене кода на токены:', error);
         setError(true);
       });
   };
