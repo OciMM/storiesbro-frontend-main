@@ -54,13 +54,14 @@ const LoginFormInfo = ({
         redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
         state: 'state',  // Дополнительный параметр состояния
         codeVerifier: codeVerifier,  // Дополнительный параметр
-        scope: 'phone email',  // Запрашиваемые разрешения
+        scope: 'email',  // Запрашиваемые разрешения
       });
 
       const oneTap = new VKID.OneTap();
       const container = document.getElementById('VkIdSdkOneTap');
 
       if (container) {
+        console.log("Че то работает:::")
         oneTap
           .render({ container })
           .on(VKID.WidgetEvents.SUCCESS, handleVkAuth)  // Обработка успеха
