@@ -8,13 +8,18 @@ import cross from "../../../images/profileImages/alertsHistoryIcons/cross.svg";
 import MyButton from "../../UI/buttons/MyButton";
 import Comment from "./Comment";
 
+// Функция для форматирования даты
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("ru-RU");
+};
+
 const ProfileHistory = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [buttonId, setButton] = useState(-1);
   const [listNotification, setListNotification] = useState([]);
 
   useEffect(() => {
-    // Функция для получения уведомлений с бэкенда
     const fetchNotifications = async () => {
       try {
         const uid = localStorage.getItem('UID');
@@ -27,7 +32,6 @@ const ProfileHistory = () => {
       }
     };
 
-    // Вызов функции для загрузки уведомлений при монтировании компонента
     fetchNotifications();
   }, []);
 
@@ -57,13 +61,6 @@ const ProfileHistory = () => {
               p: 1,
             }}
           >
-            {/* <Box
-              component="img"
-              alt="confirm"
-              src={notification.isConfirmed ? check : cross}
-              sx={{ mt: 0.5, mr: 1 }}
-            /> */}
-
             <Box sx={{ position: "relative", width: "100%" }}>
               <Typography
                 sx={{ fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}
@@ -79,21 +76,21 @@ const ProfileHistory = () => {
                   right: 0,
                 }}
               >
-                {notification.created}
+                {formatDate(notification.created)}
               </Typography>
               <Typography
                 sx={{ fontSize: { md: "14px", xs: "12px" }, fontWeight: 400 }}
               >
                 {notification.message}
               </Typography>
-                <Box sx={{ mt: 2, width: { md: "25%", sm: "50%", xs: "80%" } }}>
-                  <MyButton
-                    onClick={() => handleClick(notification.id)}
-                    options={{ background: "#E37E31", color: "white" }}
-                  >
-                    Комментарий
-                  </MyButton>
-                </Box>
+              <Box sx={{ mt: 2, width: { md: "25%", sm: "50%", xs: "80%" } }}>
+                <MyButton
+                  onClick={() => handleClick(notification.id)}
+                  options={{ background: "#E37E31", color: "white" }}
+                >
+                  Комментарий
+                </MyButton>
+              </Box>
             </Box>
           </Box>
         </Box>
