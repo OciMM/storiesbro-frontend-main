@@ -53,28 +53,20 @@ const LoginFormInfo = ({
         app: '51786441',  // Замените 'YOUR_APP_ID' на ваш VK app ID
         redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
         state: 'state',  // Дополнительный параметр состояния
-        codeVerifier: codeVerifier,  // Дополнительный параметр
-        scope: 'email',  // Запрашиваемые разрешения
+        codeVerifier: 'codeVerifier',  // Дополнительный параметр
+        scope: 'phone email',  // Запрашиваемые разрешения
       });
-
+  
       const oneTap = new VKID.OneTap();
       const container = document.getElementById('VkIdSdkOneTap');
-
+  
       if (container) {
-        console.log("Че то работает:::")
         oneTap
           .render({ container })
           .on(VKID.WidgetEvents.SUCCESS, handleVkAuth)  // Обработка успеха
           .on(VKID.WidgetEvents.ERROR, console.error);  // Обработка ошибок
       }
     });
-
-    // Обработка URL после перенаправления
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    if (code) {
-      handleVkAuth({ code });
-    }
   }, []);
 
   const handleVkAuth = (data) => {
@@ -94,7 +86,7 @@ const LoginFormInfo = ({
         // Установка токена в Redux
         dispatch(setTokken(access_token));
 
-        // Перенаправление пользователя на нужную страницу
+        // Проверка и перенаправление пользователя
         navigate('/admin');
       })
       .catch(error => {
@@ -181,7 +173,7 @@ const LoginFormInfo = ({
           fontWeight: 400,
         }}
       >
-        Нет аккаунта?{" "}
+        Нет аккаунта?
         <Link
           onClick={() => handleRegistrationForm()}
           sx={{
