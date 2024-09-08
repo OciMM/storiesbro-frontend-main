@@ -81,6 +81,7 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
+      changeChecked();
       return;
     }
   
@@ -96,6 +97,7 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
+      changeChecked();
       if (!localStorage.getItem("lastError")) {
         localStorage.setItem("lastError", true);
       } else if (localStorage.getItem("lastError")) {
@@ -109,6 +111,7 @@ const RegistrationForm = ({
       setError(true);
       setIsEmailConfirm(false);
       setIsRegistrationForm(true);
+      changeChecked();
       if (!localStorage.getItem("lastError")) {
         localStorage.setItem("lastError", true);
       } else if (localStorage.getItem("lastError")) {
