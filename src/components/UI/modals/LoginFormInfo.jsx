@@ -45,38 +45,33 @@ const LoginFormInfo = ({
   }
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-    const device_id = params.get("device_id");
-
-    if (code && device_id) {
-      // Если код и device_id присутствуют в URL, выполняем VKID.Auth.exchangeCode
-      handleVkAuth({ code, device_id });
-    } else {
-      // Иначе генерируем codeVerifier и codeChallenge для отображения OneTap
-      const codeVerifier = generateCodeVerifier();
-      generateCodeChallenge(codeVerifier).then(codeChallenge => {
-        // Инициализация VKID SDK
-        VKID.Config.init({
-          app: '51786441',  // Укажите ваш VK app ID
-          redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
-          state: 'state',  // Дополнительный параметр состояния
-          codeVerifier: codeVerifier,  // Используем сгенерированный codeVerifier
-          scope: 'phone email',  // Запрашиваемые разрешения
-        });
-    
-        const oneTap = new VKID.OneTap();
-        const container = document.getElementById('VkIdSdkOneTap');
-    
-        if (container) {
-          oneTap.render({ container })
-            .on(VKID.WidgetEvents.ERROR, console.error);  // Обработка ошибок
-        }
+    // Генерация codeVerifier и codeChallenge
+    const codeVerifier = generateCodeVerifier();
+    generateCodeChallenge(codeVerifier).then(codeChallenge => {
+      // Инициализация VKID SDK
+      VKID.Config.init({
+        app: '51786441',  // Укажите ваш VK app ID
+        redirectUrl: 'https://storisbro.com/admin',  // Укажите ваш redirect URL
+        state: 'state',  // Дополнительный параметр состояния
+        codeVerifier: codeVerifier,  // Используем сгенерированный codeVerifier
+        scope: 'phone email',  // Запрашиваемые разрешения
       });
-    }
+  
+      const oneTap = new VKID.OneTap();
+      const container = document.getElementById('VkIdSdkOneTap');
+  
+      if (container) {
+        oneTap
+          .render({ container })
+          .on(VKID.WidgetEvents.SUCCESS, handleVkAuth)  // Обработка успеха
+          .on(VKID.WidgetEvents.ERROR, console.error);  // Обработка ошибок
+      }
+    });
   }, []);
 
-  const handleVkAuth = ({ code, device_id }) => {
+  const handleVkAuth = (data) => {
+    const { code, device_id } = data;
+
     // Обмен кода на токены
     VKID.Auth.exchangeCode(code, device_id)
       .then(response => {
@@ -91,7 +86,7 @@ const LoginFormInfo = ({
         // Установка токена в Redux
         dispatch(setTokken(access_token));
 
-        // Перенаправление на админку
+        // Проверка и перенаправление пользователя
         navigate('/admin');
       })
       .catch(error => {
